@@ -7,6 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
+import functionSet from './functional.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class NavbarMenu extends React.Component {
@@ -42,13 +43,18 @@ class NavbarMenu extends React.Component {
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
+                onChange={e => {functionSet.query = e.target.value}}
               />
-              <Button variant="outline-success">Search</Button>
+              <Button variant="outline-success" onClick={executeSearch}>Search</Button>
             </Form>
           </Navbar.Collapse>
         </Container>
       </Navbar>);
     }
+}
+
+function executeSearch() {
+  functionSet.googleSearch(functionSet.query);
 }
 
 ReactDOM.render(<NavbarMenu />, document.getElementById('root'));
