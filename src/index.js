@@ -15,6 +15,7 @@ class Head extends React.Component {
     return (
     <div>
       <p lang="ua">{functionSet.getCurrentDate()}</p>
+      <p lang="ua">{functionSet.getCurrentWether()}</p>
     </div>);
   }
 }
