@@ -3,19 +3,35 @@ import ReactDOM from 'react-dom';
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import CardGroup from 'react-bootstrap/CardGroup';
 import functionSet from './functional.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+class Footer extends React.Component {
+  render() {
+    return (
+      <div id="footer">
+        <Container>
+          <Row>Contact us: </Row>
+          <Row>Hello: </Row>
+          <Row>It is a footer </Row>
+        </Container>
+      </div>);
+  }
+}
 
 class NavbarMenu extends React.Component {
     render() {
         return (
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg="dark" variant="dark" expand="lg" lang="ua">
         <Container fluid>
-          <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+          <Navbar.Brand href="#">Головна</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -23,19 +39,11 @@ class NavbarMenu extends React.Component {
               style={{ maxHeight: '100px'}}
               navbarScroll
             >
-              <Nav.Link href="#action1">Home</Nav.Link>
-              <Nav.Link href="#action2">Link</Nav.Link>
-              <NavDropdown title="Link" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">
-                  Something else here
-                </NavDropdown.Item>
-              </NavDropdown>
-              <Nav.Link href="#" disabled>
-                Link
-              </Nav.Link>
+              <Nav.Link className="navbar_link" href="#action1">Політика</Nav.Link>
+              <Nav.Link className="navbar_link" href="#action2">Культура</Nav.Link>
+              <Nav.Link className="navbar_link" href="#action3">Спорт</Nav.Link>
+              <Nav.Link className="navbar_link" href="#action4">Світське життя</Nav.Link>
+              <Nav.Link className="navbar_link" href="#action5">Здоров'я</Nav.Link>
             </Nav>
             <Form className="d-flex">
               <FormControl
@@ -45,7 +53,7 @@ class NavbarMenu extends React.Component {
                 aria-label="Search"
                 onChange={e => {functionSet.query = e.target.value}}
               />
-              <Button variant="outline-success" onClick={executeSearch}>Search</Button>
+              <Button variant="outline-success" onClick={functionSet.googleSearch}>Search</Button>
             </Form>
           </Navbar.Collapse>
         </Container>
@@ -53,8 +61,15 @@ class NavbarMenu extends React.Component {
     }
 }
 
-function executeSearch() {
-  functionSet.googleSearch(functionSet.query);
+class App extends React.Component {
+  render(){
+    return (
+      <>
+        <NavbarMenu />
+        <Footer />
+      </>
+    );
+  }
 }
 
-ReactDOM.render(<NavbarMenu />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
