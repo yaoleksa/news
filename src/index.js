@@ -3,15 +3,21 @@ import ReactDOM from 'react-dom';
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
-
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
-import CardGroup from 'react-bootstrap/CardGroup';
 import functionSet from './functional.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+class Head extends React.Component {
+  render() {
+    return (
+    <div>
+      <p lang="ua">{functionSet.getCurrentDate()}</p>
+    </div>);
+  }
+}
 
 class Footer extends React.Component {
   render() {
@@ -44,6 +50,8 @@ class NavbarMenu extends React.Component {
               <Nav.Link className="navbar_link" href="#action3">Спорт</Nav.Link>
               <Nav.Link className="navbar_link" href="#action4">Світське життя</Nav.Link>
               <Nav.Link className="navbar_link" href="#action5">Здоров'я</Nav.Link>
+              <Nav.Link className="navbar_link" href="#action5">Економіка</Nav.Link>
+              <Nav.Link className="navbar_link" href="#action5">COVID-19</Nav.Link>
             </Nav>
             <Form className="d-flex">
               <FormControl
@@ -53,7 +61,7 @@ class NavbarMenu extends React.Component {
                 aria-label="Search"
                 onChange={e => {functionSet.query = e.target.value}}
               />
-              <Button variant="outline-success" onClick={functionSet.googleSearch}>Search</Button>
+              <Button variant="success" onClick={functionSet.googleSearch}>Пошук</Button>
             </Form>
           </Navbar.Collapse>
         </Container>
@@ -66,6 +74,7 @@ class App extends React.Component {
     return (
       <>
         <NavbarMenu />
+        <Head />
         <Footer />
       </>
     );

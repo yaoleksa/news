@@ -1,10 +1,11 @@
 .navbar_link {
     color: white !important;
 }
+
 #footer {
     width: 100%;
     color: white !important;
-    background-color: black;
+    background-color: #262626;
     position: absolute;
     bottom: 0;
 }
