@@ -3,18 +3,25 @@ module.exports = functionSet = {
     googleSearch: () => {
         window.open(`https://www.google.com/search?q=${functionSet.query}`);
     },
-    currentDate: new Date(),
     weekDays: ['Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', 'П\'ятниця', 'Субота'],
     months: ['Січня', 'Лютого', 'Березня', 'Квітня', 'Травня', 'Червня', 'Липня', 'Серпня', 'Вересня', 'Жовтня', 'Листопада', 'Грудня'],
     getCurrentDate: () => {
-        return functionSet.weekDays[functionSet.currentDate.getDay()] + ', ' + 
-               functionSet.currentDate.getDate() + ' ' +
-               functionSet.months[functionSet.currentDate.getMonth()] + ' ' +
-               functionSet.currentDate.getFullYear() + ' року'
+        let currentDate = new Date();
+        return functionSet.weekDays[currentDate.getDay()] + ', ' + 
+               currentDate.getDate() + ' ' +
+               functionSet.months[currentDate.getMonth()] + ' ' +
+               currentDate.getFullYear() + ' року  ' + 
+               currentDate.getHours() % 12 + ':' +
+               (currentDate.getMinutes().toString().length < 2 ?
+               '0' + currentDate.getMinutes() :
+               currentDate.getMinutes()) + ':' + 
+               (currentDate.getSeconds().toString().length < 2 ?
+                '0' + currentDate.getSeconds() : currentDate.getSeconds());
 
     },
+    userDeniedLocationRequest: 0,
     getDefaultWeather: () => {
-        fetch('http://api.weatherstack.com/current?access_key=899532d9d1dac46fce4e7b0aa3ef92d3&query=Lviv')
+        fetch('http://api.openweathermap.org/data/2.5/weather?q=Lviv&units=metric&APPID=132481af3894196312f3bf922a6a66d4')
         .then(res => {
             return res.json();
         })
@@ -26,12 +33,8 @@ module.exports = functionSet = {
         });
     },
     getCurrentWether: () => {
-        let latitude = 0;
-        let longitude = 0;
         function success(pos) {
-            latitude = pos.coords.latitude;
-            longitude = pos.coords.longitude;
-            fetch(`http://api.weatherstack.com/current?access_key=899532d9d1dac46fce4e7b0aa3ef92d3&query=${latitude},${longitude}`)
+            fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&units=metric&APPID=132481af3894196312f3bf922a6a66d4`)
             .then(res => {
                 return res.json();
             })
@@ -44,6 +47,7 @@ module.exports = functionSet = {
         }
         function errors(posErr) {
             if(posErr.code == 1) {
+                functionSet.userDeniedLocationRequest = posErr.code;
                 functionSet.getDefaultWeather();
             }
             console.error(`ERROR ${posErr.code}: ${posErr.message}`);

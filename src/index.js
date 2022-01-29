@@ -11,12 +11,32 @@ import functionSet from './functional.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Head extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentTime: functionSet.getCurrentDate()
+    }
+  }
+  changeTime() {
+    setInterval(() => {
+      this.setState({
+        currentTime: functionSet.getCurrentDate()
+      });
+    }, 1);
+  }
   render() {
     return (
-    <div>
-      <p lang="ua">{functionSet.getCurrentDate()}</p>
-      <p lang="ua">{functionSet.getCurrentWether()}</p>
-    </div>);
+      <div>
+        <p>{this.state.currentTime}</p>
+        <p>{this.state.location}</p>
+      </div>
+    );
+  }
+  componentDidMount() {
+    this.changeTime();
+  }
+  componentDidUpdate(prevProps) {
+    
   }
 }
 
