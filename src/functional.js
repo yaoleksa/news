@@ -1,3 +1,5 @@
+const regeneratorRuntime = require('regenerator-runtime');
+
 module.exports = functionSet = {
     query: '',
     googleSearch: () => {
@@ -10,36 +12,41 @@ module.exports = functionSet = {
         return functionSet.weekDays[currentDate.getDay()] + ', ' + 
                currentDate.getDate() + ' ' +
                functionSet.months[currentDate.getMonth()] + ' ' +
-               currentDate.getFullYear() + ' року  ' + 
-               currentDate.getHours() % 12 + ':' +
-               (currentDate.getMinutes().toString().length < 2 ?
-               '0' + currentDate.getMinutes() :
-               currentDate.getMinutes()) + ':' + 
-               (currentDate.getSeconds().toString().length < 2 ?
-                '0' + currentDate.getSeconds() : currentDate.getSeconds());
+               currentDate.getFullYear() + ' року';
 
+    },
+    getCurrentTime: () => {
+        let currentDate = new Date();
+        return currentDate.getHours() % 12 + ':' + 
+                (currentDate.getMinutes().toString().length < 2 ?
+                '0' + currentDate.getMinutes() :
+                currentDate.getMinutes()) + ':' + 
+                (currentDate.getSeconds().toString().length < 2 ?
+                '0' + currentDate.getSeconds() : currentDate.getSeconds());
     },
     userDeniedLocationRequest: 0,
     getDefaultWeather: () => {
-        fetch('http://api.openweathermap.org/data/2.5/weather?q=Lviv&units=metric&APPID=132481af3894196312f3bf922a6a66d4')
+        return fetch('http://api.openweathermap.org/data/2.5/weather?q=Lviv&units=metric&APPID=132481af3894196312f3bf922a6a66d4')
         .then(res => {
             return res.json();
         })
         .then(data => {
-            console.log(data);
+            return data;
         })
         .catch(e => {
             console.log(e.message);
         });
     },
-    getCurrentWether: () => {
+    localWeatherData: null,
+    once: null,
+    getLocalWeather: async () => {
         function success(pos) {
-            fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&units=metric&APPID=132481af3894196312f3bf922a6a66d4`)
+            return fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&units=metric&APPID=132481af3894196312f3bf922a6a66d4`)
             .then(res => {
                 return res.json();
             })
             .then(data => {
-                console.log(data);
+                functionSet.localWeatherData = data;
             })
             .catch(e => {
                 console.log(e.message);
@@ -52,7 +59,7 @@ module.exports = functionSet = {
             }
             console.error(`ERROR ${posErr.code}: ${posErr.message}`);
         }
-
+        
         navigator.geolocation.getCurrentPosition(success, errors);
     }
 }

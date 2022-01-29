@@ -14,19 +14,28 @@ class Head extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentTime: functionSet.getCurrentDate()
+      currentDate: functionSet.getCurrentDate(),
+      currentTime: functionSet.getCurrentTime(),
+      weather: null
     }
+    functionSet.getDefaultWeather().then(weatherData => {
+      this.setState({
+        weather: weatherData
+      });
+    });
   }
   changeTime() {
     setInterval(() => {
       this.setState({
-        currentTime: functionSet.getCurrentDate()
+        currentDate: functionSet.getCurrentDate(),
+        currentTime: functionSet.getCurrentTime()
       });
     }, 1);
   }
   render() {
     return (
       <div>
+        <p>{this.state.currentDate}</p>
         <p>{this.state.currentTime}</p>
         <p>{this.state.location}</p>
       </div>
@@ -34,9 +43,21 @@ class Head extends React.Component {
   }
   componentDidMount() {
     this.changeTime();
+    console.log(functionSet.getLocalWeather());
   }
-  componentDidUpdate(prevProps) {
-    
+  componentDidUpdate(prevProps, prevState) {
+    if(this.state.weather != prevState.weather) {
+      navigator.permissions.query({ name: 'geolocation' }).state
+      console.log(this.state.weather);
+      console.log(prevState.weather);
+    }
+    if(functionSet.localWeatherData && !functionSet.once) {
+      this.setState({
+        weather: functionSet.localWeatherData
+      });
+      functionSet.once = 5;
+      console.log('Ura');
+    }
   }
 }
 
