@@ -43,7 +43,6 @@ class Head extends React.Component {
   }
   componentDidMount() {
     this.changeTime();
-    console.log(functionSet.getLocalWeather());
   }
   componentDidUpdate(prevProps, prevState) {
     if(this.state.weather != prevState.weather) {
@@ -51,12 +50,11 @@ class Head extends React.Component {
       console.log(this.state.weather);
       console.log(prevState.weather);
     }
-    if(functionSet.localWeatherData && !functionSet.once) {
+    if(functionSet.localWeatherData && !functionSet.dataWasRetrieved) {
       this.setState({
         weather: functionSet.localWeatherData
       });
-      functionSet.once = 5;
-      console.log('Ura');
+      functionSet.dataWasRetrieved = true;
     }
   }
 }

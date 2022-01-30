@@ -38,7 +38,7 @@ module.exports = functionSet = {
         });
     },
     localWeatherData: null,
-    once: null,
+    dataWasRetrieved: false,
     getLocalWeather: async () => {
         function success(pos) {
             return fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&units=metric&APPID=132481af3894196312f3bf922a6a66d4`)
