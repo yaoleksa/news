@@ -17,14 +17,44 @@ module.exports = functionSet = {
     },
     getCurrentTime: () => {
         let currentDate = new Date();
-        return currentDate.getHours() % 12 + ':' + 
+        return currentDate.getHours() + ':' + 
                 (currentDate.getMinutes().toString().length < 2 ?
                 '0' + currentDate.getMinutes() :
                 currentDate.getMinutes()) + ':' + 
                 (currentDate.getSeconds().toString().length < 2 ?
                 '0' + currentDate.getSeconds() : currentDate.getSeconds());
     },
-    userDeniedLocationRequest: 0,
+    cityMap: {
+        "Lviv": "Погода у Львові: ",
+        "Kyiv": "Погода в Києві: ",
+        "Kharkiv": "Погода в Харкові: ",
+        "Odesa": "Погода в Одесі: ",
+        "Dnipro": "Погода в Дніпрі: ",
+        "Donetsk": "Погода в Донецьку: ",
+        "Zaporizhzhia": "Погода в Запоріжжі: ",
+        "Kryvyi Rih": "Погода в Кривому Розі: ",
+        "Mykolaiv": "Погода в Миколаєві: ",
+        "Sevastopol": "Погода в Севастополі: ",
+        "Mariupol": "Погода в Маріуполі: ",
+        "Luhansk": "Погода в Луганську: ",
+        "Vinnytsia": "Погода у Вінниці: ",
+        "Chernihiv": "Погода в Чернівцях: ",
+        "Kherson": "Погода в Херсоні: ",
+        "Poltava": "Погода в Полтаві: ",
+        "Khmelnytskyi": "Погода в Хмельницькому: ",
+        "Cherkasy": "Погода в Черкасах: ",
+        "Chernivtsi": "Погода в Чернівцях: ",
+        "Zhytomyr": "Погода в Житомирі: ",
+        "Sumy": "Погода в Сумах: ",
+        "Rivne": "Погода в Рівному: ",
+        "Ivano-Frankivsk": "Погода в Івано-Франківську: ",
+        "Ternopil": "Погода в Тернополі: ",
+        "Kropyvnytskyi": "Погода в Кропивницькому: ",
+        "Lutsk": "Погода в Луцьку: ",
+        "Uzhhorod": "Погода в Ужгороді"
+    },
+    weatherData: null,
+    dataWasRetrieved: false,
     getDefaultWeather: () => {
         return fetch('http://api.openweathermap.org/data/2.5/weather?q=Lviv&units=metric&APPID=132481af3894196312f3bf922a6a66d4')
         .then(res => {
@@ -37,29 +67,27 @@ module.exports = functionSet = {
             console.log(e.message);
         });
     },
-    localWeatherData: null,
-    dataWasRetrieved: false,
     getLocalWeather: async () => {
-        function success(pos) {
-            return fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&units=metric&APPID=132481af3894196312f3bf922a6a66d4`)
+        async function success(pos) {
+            return await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&units=metric&APPID=132481af3894196312f3bf922a6a66d4`)
             .then(res => {
                 return res.json();
             })
             .then(data => {
-                functionSet.localWeatherData = data;
+                functionSet.weatherData = data;
             })
             .catch(e => {
+                functionSet.getDefaultWeather();
                 console.log(e.message);
             });
         }
         function errors(posErr) {
             if(posErr.code == 1) {
-                functionSet.userDeniedLocationRequest = posErr.code;
                 functionSet.getDefaultWeather();
             }
             console.error(`ERROR ${posErr.code}: ${posErr.message}`);
         }
         
-        navigator.geolocation.getCurrentPosition(success, errors);
+        await navigator.geolocation.getCurrentPosition(success, errors);
     }
 }

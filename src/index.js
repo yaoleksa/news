@@ -16,13 +16,29 @@ class Head extends React.Component {
     this.state = {
       currentDate: functionSet.getCurrentDate(),
       currentTime: functionSet.getCurrentTime(),
-      weather: null
+      weather: {
+        main: {
+          humidity: null,
+          pressure: null,
+          temp: null
+        },
+        name: null
+      }
     }
-    functionSet.getDefaultWeather().then(weatherData => {
+    functionSet.getDefaultWeather().then(data => {
       this.setState({
-        weather: weatherData
+        weather: data
       });
-    });
+      if(functionSet.cityMap[this.state.weather.name]) {
+        this.setState({
+          location: functionSet.cityMap[this.state.weather.name]
+        });
+      } else {
+        this.setState({
+          location: "Погода: "
+        });
+      }
+    })
   }
   changeTime() {
     setInterval(() => {
@@ -35,26 +51,41 @@ class Head extends React.Component {
   render() {
     return (
       <div>
-        <p>{this.state.currentDate}</p>
-        <p>{this.state.currentTime}</p>
-        <p>{this.state.location}</p>
+        <div>
+          <p>{this.state.currentDate}</p>
+          <p>{this.state.currentTime}</p>
+        </div>
+        <div>
+          <p>{this.state.location}{parseFloat(this.state.weather.main.temp).toFixed(0)}</p>
+          <p>Вологість повітря: {this.state.weather.main.humidity}</p>
+          <p>Атмосферний тиск: {this.state.weather.main.pressure}</p>
+        </div>
       </div>
     );
   }
   componentDidMount() {
     this.changeTime();
+    functionSet.getLocalWeather()
   }
   componentDidUpdate(prevProps, prevState) {
-    if(this.state.weather != prevState.weather) {
-      navigator.permissions.query({ name: 'geolocation' }).state
-      console.log(this.state.weather);
-      console.log(prevState.weather);
-    }
-    if(functionSet.localWeatherData && !functionSet.dataWasRetrieved) {
+    if(functionSet.weatherData && !functionSet.dataWasRetrieved) {
       this.setState({
-        weather: functionSet.localWeatherData
+        weather: functionSet.weatherData
       });
+      if(functionSet.cityMap[this.state.weather.name]) {
+        this.setState({
+          location: functionSet.cityMap[this.state.weather.name]
+        });
+      } else {
+        this.setState({
+          location: "Погода: "
+        });
+      }
+      console.log(this.state.weather);
       functionSet.dataWasRetrieved = true;
+    }
+    if(this.state.weather.main.temp != prevState.weather.main.temp || this.state.weather.name != prevState.weather.name) {
+      
     }
   }
 }
