@@ -56,9 +56,7 @@ module.exports = functionSet = {
     weatherData: null,
     dataWasRetrieved: false,
     getDefaultWeather: () => {
-        return fetch('http://api.openweathermap.org/data/2.5/weather?q=Lviv&units=metric&APPID=132481af3894196312f3bf922a6a66d4', {
-            mode: 'no-cors'
-        })
+        return fetch('http://api.openweathermap.org/data/2.5/weather?q=Lviv&units=metric&APPID=132481af3894196312f3bf922a6a66d4')
         .then(res => {
             return res.json();
         })
@@ -71,9 +69,7 @@ module.exports = functionSet = {
     },
     getLocalWeather: async () => {
         async function success(pos) {
-            return await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&units=metric&APPID=132481af3894196312f3bf922a6a66d4`, {
-                mode: 'no-cors'
-            })
+            return await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&units=metric&APPID=132481af3894196312f3bf922a6a66d4`)
             .then(res => {
                 return res.json();
             })
