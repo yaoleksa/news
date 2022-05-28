@@ -108,7 +108,7 @@ class NavbarMenu extends React.Component {
         return (
         <Navbar bg="dark" variant="dark" expand="lg" lang="ua">
         <Container fluid>
-          <Navbar.Brand href="#">Головна</Navbar.Brand>
+          <Navbar.Brand href="./index.html">Головна</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -116,13 +116,13 @@ class NavbarMenu extends React.Component {
               style={{ maxHeight: '100px'}}
               navbarScroll
             >
-              <Nav.Link className="navbar_link" href="#action1">Політика</Nav.Link>
-              <Nav.Link className="navbar_link" href="#action2">Культура</Nav.Link>
-              <Nav.Link className="navbar_link" href="#action3">Спорт</Nav.Link>
-              <Nav.Link className="navbar_link" href="#action4">Світське життя</Nav.Link>
-              <Nav.Link className="navbar_link" href="#action5">Здоров'я</Nav.Link>
-              <Nav.Link className="navbar_link" href="#action5">Економіка</Nav.Link>
-              <Nav.Link className="navbar_link" href="#action5">COVID-19</Nav.Link>
+              <Nav.Link className="navbar_link" href="./pages/policy.html">Політика</Nav.Link>
+              <Nav.Link className="navbar_link" href="./pages/culture.html">Культура</Nav.Link>
+              <Nav.Link className="navbar_link" href="./pages/sport.html">Спорт</Nav.Link>
+              <Nav.Link className="navbar_link" href="./pages/secular_life.html">Світське життя</Nav.Link>
+              <Nav.Link className="navbar_link" href="./pages/health.html">Здоров'я</Nav.Link>
+              <Nav.Link className="navbar_link" href="./pages/economy.html">Економіка</Nav.Link>
+              <Nav.Link className="navbar_link" href="./pages/covid-19.html">COVID-19</Nav.Link>
             </Nav>
             <Form className="d-flex">
               <FormControl

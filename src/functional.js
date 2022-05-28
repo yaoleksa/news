@@ -86,8 +86,8 @@ module.exports = functionSet = {
                 functionSet.getDefaultWeather();
             }
             console.error(`ERROR ${posErr.code}: ${posErr.message}`);
+            console.log(userPermission);
         }
-        
         await navigator.geolocation.getCurrentPosition(success, errors);
     }
 }
