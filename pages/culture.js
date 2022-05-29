@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button';
 import functionSet from '../src/functional.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-class PolicyNavbarMenu extends React.Component {
+class CultureNavbarMenu extends React.Component {
     render() {
         return (
         <Navbar bg="dark" variant="dark" expand="lg" lang="ua">
@@ -22,8 +22,8 @@ class PolicyNavbarMenu extends React.Component {
               style={{ maxHeight: '100px'}}
               navbarScroll
             >
-              <Nav.Link className="navbar_link" href="./policy.html" active>Політика</Nav.Link>
-              <Nav.Link className="navbar_link" href="./culture.html">Культура</Nav.Link>
+              <Nav.Link className="navbar_link" href="./policy.html">Політика</Nav.Link>
+              <Nav.Link className="navbar_link" href="./culture.html" active>Культура</Nav.Link>
               <Nav.Link className="navbar_link" href="./sport.html">Спорт</Nav.Link>
               <Nav.Link className="navbar_link" href="./secular_life.html">Світське життя</Nav.Link>
               <Nav.Link className="navbar_link" href="./health.html">Здоров'я</Nav.Link>
@@ -46,4 +46,5 @@ class PolicyNavbarMenu extends React.Component {
     }
 }
 
-ReactDOM.render(<PolicyNavbarMenu />, document.getElementById('root'));
+ReactDOM.render(<CultureNavbarMenu />, document.getElementById('root'));
+
