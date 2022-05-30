@@ -91,9 +91,13 @@ module.exports = functionSet = {
         await navigator.geolocation.getCurrentPosition(success, errors);
     },
     getNews: () => {
-        const url = "https://newsapi.org/v2/top-headlines?country=ua&apiKey=e1dc1b7fda1f436c9e9a45fc23e45c7d";
+        const url = "https://api.newscatcherapi.com/v2/sources?topic=business&lang=en&countries=US";
         const request = new Request(url);
-        fetch(request)
+        fetch(request, {
+            headers: {
+                'x-api-key': 'mzj4HvlacbRH43uwmiHoRfZfm2YTn8UxVN1cns7zruI'
+            }
+        })
         .then((response) => {
             return response.json();
         })
