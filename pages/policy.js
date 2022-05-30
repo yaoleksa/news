@@ -46,4 +46,6 @@ class PolicyNavbarMenu extends React.Component {
     }
 }
 
+functionSet.getNews();
+
 ReactDOM.render(<PolicyNavbarMenu />, document.getElementById('root'));

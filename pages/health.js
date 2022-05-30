@@ -46,5 +46,7 @@ class HealthNavbarMenu extends React.Component {
     }
 }
 
+functionSet.getNews();
+
 ReactDOM.render(<HealthNavbarMenu />, document.getElementById('root'));
 

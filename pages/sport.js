@@ -46,5 +46,7 @@ class SportNavbarMenu extends React.Component {
     }
 }
 
+functionSet.getNews();
+
 ReactDOM.render(<SportNavbarMenu />, document.getElementById('root'));
 

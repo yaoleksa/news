@@ -46,4 +46,6 @@ class CovidNavbarMenu extends React.Component {
     }
 }
 
+functionSet.getNews();
+
 ReactDOM.render(<CovidNavbarMenu />, document.getElementById('root'));

@@ -46,5 +46,7 @@ class EconomyNavbarMenu extends React.Component {
     }
 }
 
+functionSet.getNews();
+
 ReactDOM.render(<EconomyNavbarMenu />, document.getElementById('root'));
 

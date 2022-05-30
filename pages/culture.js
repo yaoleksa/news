@@ -46,5 +46,7 @@ class CultureNavbarMenu extends React.Component {
     }
 }
 
+functionSet.getNews();
+
 ReactDOM.render(<CultureNavbarMenu />, document.getElementById('root'));
 

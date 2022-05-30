@@ -46,5 +46,7 @@ class SecularNavbarMenu extends React.Component {
     }
 }
 
+functionSet.getNews();
+
 ReactDOM.render(<SecularNavbarMenu />, document.getElementById('root'));
 
