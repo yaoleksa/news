@@ -152,4 +152,6 @@ class App extends React.Component {
   }
 }
 
+functionSet.getNews();
+
 ReactDOM.render(<App />, document.getElementById('root'));

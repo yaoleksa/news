@@ -89,5 +89,16 @@ module.exports = functionSet = {
             console.log(userPermission);
         }
         await navigator.geolocation.getCurrentPosition(success, errors);
+    },
+    getNews: () => {
+        const url = "https://newsapi.org/v2/top-headlines?country=ua&apiKey=e1dc1b7fda1f436c9e9a45fc23e45c7d";
+        const request = new Request(url);
+        fetch(request)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+        })
     }
 }
