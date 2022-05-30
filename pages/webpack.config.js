@@ -2,9 +2,9 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './sport.js',
+  entry: './covid.js',
   output: {
-    filename: 'bandledSport.js',
+    filename: 'bandledCovid.js',
     path: path.resolve(__dirname, './'),
   },
   module: {
@@ -21,5 +21,9 @@ module.exports = {
           test: /\.css$/,
           use: ['style-loader', 'css-loader']
       }]
-  }
+  },
+  experiments: {
+    asyncWebAssembly: true,
+    topLevelAwait: true
+  },
 };

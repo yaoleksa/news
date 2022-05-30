@@ -90,10 +90,10 @@ module.exports = functionSet = {
         }
         await navigator.geolocation.getCurrentPosition(success, errors);
     },
-    getNews: () => {
+    getNews: async () => {
         const url = "https://api.newscatcherapi.com/v2/search?q=all&lang=uk&countries=UA";
         const request = new Request(url);
-        fetch(request, {
+        return await fetch(request, {
             headers: {
                 'x-api-key': 'mzj4HvlacbRH43uwmiHoRfZfm2YTn8UxVN1cns7zruI'
             }
@@ -102,7 +102,7 @@ module.exports = functionSet = {
             return response.json();
         })
         .then((data) => {
-            console.log(data);
+            return data;
         })
     }
 }
