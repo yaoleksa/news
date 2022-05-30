@@ -91,7 +91,7 @@ module.exports = functionSet = {
         await navigator.geolocation.getCurrentPosition(success, errors);
     },
     getNews: () => {
-        const url = "https://api.newscatcherapi.com/v2/sources?topic=business&lang=en&countries=US";
+        const url = "https://api.newscatcherapi.com/v2/search?q=all&lang=uk&countries=UA";
         const request = new Request(url);
         fetch(request, {
             headers: {
