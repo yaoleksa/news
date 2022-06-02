@@ -152,6 +152,8 @@ class App extends React.Component {
   }
 }
 
-functionSet.getNews();
+const newsSet = await functionSet.getNews();
+
+export { Footer }
 
 ReactDOM.render(<App />, document.getElementById('root'));

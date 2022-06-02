@@ -7,12 +7,13 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import functionSet, { dataWasRetrieved } from '../src/functional.js';
+import * as Elements from '../src/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class CovidNavbarMenu extends React.Component {
     render() {
         return (
-        <Navbar bg="dark" variant="dark" expand="lg" lang="ua">
+        <Navbar bg="dark" variant="dark" expand="lg" lang="uk">
         <Container fluid>
           <Navbar.Brand href="../index.html">Головна</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -46,10 +47,16 @@ class CovidNavbarMenu extends React.Component {
     }
 }
 
-const respons = await functionSet.getNews().then((data) => {
-  return data;
-});
+class App extends React.Component{
+  render(){
+    return (<>
+            <CovidNavbarMenu />
+            <Elements.Footer />
+            </>);
+  }
+}
 
-console.log(respons);
+const newsSet = await functionSet.getNews();
+console.log(newsSet.status);
 
-ReactDOM.render(<CovidNavbarMenu />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
