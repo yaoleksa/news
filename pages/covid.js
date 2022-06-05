@@ -57,6 +57,6 @@ class App extends React.Component{
 }
 
 const newsSet = await functionSet.getNews();
-console.log(newsSet.status);
+console.log(newsSet);
 
 ReactDOM.render(<App />, document.getElementById('root'));

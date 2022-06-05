@@ -6,7 +6,8 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
-import functionSet from '../src/functional.js';
+import functionSet, { dataWasRetrieved } from '../src/functional.js';
+import * as Elements from '../src/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class PolicyNavbarMenu extends React.Component {
@@ -46,6 +47,7 @@ class PolicyNavbarMenu extends React.Component {
     }
 }
 
-functionSet.getNews();
+const newsSet = await functionSet.getNews();
+console.log(newsSet);
 
 ReactDOM.render(<PolicyNavbarMenu />, document.getElementById('root'));

@@ -103,6 +103,6 @@ module.exports = functionSet = {
         })
         .then((data) => {
             return data;
-        })
+        });
     }
 }
