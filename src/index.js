@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar';
@@ -50,17 +50,18 @@ class Head extends React.Component {
   }
   render() {
     return (
-      <div>
-        <div>
-          <p>{this.state.currentDate}</p>
-          <p>{this.state.currentTime}</p>
-        </div>
-        <div>
-          <p>{this.state.location}{parseFloat(this.state.weather.main.temp).toFixed(0)}</p>
-          <p>Вологість повітря: {this.state.weather.main.humidity}</p>
-          <p>Атмосферний тиск: {this.state.weather.main.pressure}</p>
-        </div>
-      </div>
+      <span id="weather_head">
+        <span>
+          <span className="header_info">{this.state.currentDate}</span>
+          <span className="header_info">{this.state.currentTime}</span>
+        </span>
+        <span>
+          <span className="header_info">{this.state.location}
+          {parseFloat(this.state.weather.main.temp).toFixed(0)}{" градусів"}</span>
+          <span className="header_info">Вологість повітря: {this.state.weather.main.humidity}</span>
+          <span className="header_info">Атмосферний тиск: {this.state.weather.main.pressure}</span>
+        </span>
+      </span>
     );
   }
   componentDidMount() {
@@ -140,6 +141,28 @@ class NavbarMenu extends React.Component {
     }
 }
 
+class NewsSet extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      articles: [{
+        excerpt: ''
+      }]
+    }
+    functionSet.getNews().then(response => {
+      this.setState({
+        articles: response.articles
+      });
+      console.log(response);
+    })
+  }
+  render(){
+    return (<>
+    <p id="title">{this.state.articles[0].excerpt}</p>
+    </>)
+  }
+}
+
 class App extends React.Component {
   render(){
     return (
@@ -147,12 +170,11 @@ class App extends React.Component {
         <NavbarMenu />
         <Head />
         <Footer />
+        <NewsSet />
       </>
     );
   }
 }
-
-const newsSet = await functionSet.getNews();
 
 export { Footer }
 

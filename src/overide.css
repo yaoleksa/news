@@ -9,3 +9,21 @@
     position: absolute;
     bottom: 0;
 }
+
+#weather_head {
+    width: 100%;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    display: inline;
+    background-color: gainsboro;
+}
+
+.header_info{
+    padding: 1rem;
+}
+
+#title{
+    position: relative;
+    padding-top: 2rem;
+}
