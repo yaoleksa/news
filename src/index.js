@@ -157,8 +157,13 @@ class NewsSet extends React.Component {
     })
   }
   render(){
+    const arr = [];
+    arr.push(<p>Hello</p>);
+    arr.push(<p> </p>);
+    arr.push(<p>World</p>);
     return (<>
     <p id="title">{this.state.articles[0].excerpt}</p>
+    <div>{arr}</div>
     </>)
   }
 }
