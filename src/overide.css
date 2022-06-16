@@ -33,6 +33,6 @@
     margin-bottom: 7rem;
     position: relative;
     width: 14rem;
-    height: 45rem;
+    height: fit-content;
     overflow-y: scroll;
 }
