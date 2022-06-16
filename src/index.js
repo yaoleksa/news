@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import functionSet from './functional.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -141,29 +142,26 @@ class NavbarMenu extends React.Component {
     }
 }
 
+const articles = await functionSet.getNews().then((response) => {
+  return response.articles;
+});
+
 class NewsSet extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      articles: [{
-        excerpt: ''
-      }]
-    }
-    functionSet.getNews().then(response => {
-      this.setState({
-        articles: response.articles
-      });
-      console.log(response);
-    })
-  }
   render(){
-    const arr = [];
-    arr.push(<p>Hello</p>);
-    arr.push(<p> </p>);
-    arr.push(<p>World</p>);
+    const cardArr = [];
+    console.log(articles);
+    let count = 0;
+    for(let article of articles){
+      let item = <Card style={{width: '12rem', height: 'fit-content'}} lang="ua" key={count}>
+        <Card.Img variant="top" src={article.media} />
+        <Card.Text>{article.title}</Card.Text>
+        <a href={article.link}>{article.link}</a>
+      </Card>
+      cardArr.push(item);
+      count++;
+    }
     return (<>
-    <p id="title">{this.state.articles[0].excerpt}</p>
-    <div>{arr}</div>
+    <div id="cards_container">{cardArr}</div>
     </>)
   }
 }
