@@ -47,7 +47,15 @@ class PolicyNavbarMenu extends React.Component {
     }
 }
 
-const newsSet = await functionSet.getNews();
-console.log(newsSet);
+class App extends React.Component {
+  render() {
+    return (<>
+        <PolicyNavbarMenu />
+        <Elements.Head />
+        <Elements.NewsSet />
+        <Elements.Footer />
+    </>);
+  }
+}
 
-ReactDOM.render(<PolicyNavbarMenu />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));

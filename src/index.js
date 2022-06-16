@@ -179,6 +179,6 @@ class App extends React.Component {
   }
 }
 
-export { Footer }
+export { Footer, NewsSet, Head }
 
 ReactDOM.render(<App />, document.getElementById('root'));

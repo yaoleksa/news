@@ -51,12 +51,11 @@ class App extends React.Component{
   render(){
     return (<>
             <CovidNavbarMenu />
+            <Elements.Head />
+            <Elements.NewsSet />
             <Elements.Footer />
             </>);
   }
 }
-
-const newsSet = await functionSet.getNews();
-console.log(newsSet);
 
 ReactDOM.render(<App />, document.getElementById('root'));

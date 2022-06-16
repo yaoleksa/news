@@ -47,8 +47,16 @@ class SportNavbarMenu extends React.Component {
     }
 }
 
-const newsSet = await functionSet.getNews();
-console.log(newsSet);
+class App extends React.Component {
+  render() {
+    return (<>
+        <SportNavbarMenu />
+        <Elements.Head />
+        <Elements.NewsSet />
+        <Elements.Footer />
+    </>);
+  }
+}
 
-ReactDOM.render(<SportNavbarMenu />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 
