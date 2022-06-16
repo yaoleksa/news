@@ -51,6 +51,8 @@ class App extends React.Component{
   render(){
     return (<>
             <CovidNavbarMenu />
+            <Elements.Head />
+            <Elements.NewsSet />
             <Elements.Footer />
             </>);
   }
