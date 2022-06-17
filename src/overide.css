@@ -25,10 +25,24 @@
 
 #cards_container {
     padding-top: 2rem;
-    margin-top: 7rem;
-    margin-bottom: 10rem;
+    padding-left: 0.5%;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
     position: relative;
-    width: 14rem;
-    height: 29rem;
+    width: 150%;
+    height: 80vmin;
     overflow-y: scroll;
+}
+
+#central_container {
+    display: inline-flex;
+    width: 100%;
+}
+
+#left_container {
+    float: left;
+    vertical-align: middle;
+    padding-top: 25%;
+    padding-left: 3%;
+    padding-right: 3%;
 }

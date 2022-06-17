@@ -98,8 +98,8 @@ class Footer extends React.Component {
       <div id="footer">
         <Container>
           <Row>Contact us: </Row>
-          <Row>Hello: </Row>
-          <Row>It is a footer </Row>
+          <Row>Donate: </Row>
+          <Row>Danate AFU: </Row>
         </Container>
       </div>);
   }
@@ -151,17 +151,30 @@ class NewsSet extends React.Component {
     const cardArr = [];
     console.log(articles);
     let count = 0;
+    let favorite = articles[0];
     for(let article of articles){
+      if(favorite.summary.length < article.summary.length) {
+        favorite = article;
+        continue;
+      }
       let item = <Card style={{width: '12rem', height: 'fit-content'}} lang="ua" key={count}>
         <Card.Img variant="top" src={article.media} />
         <Card.Text>{article.title}</Card.Text>
-        <a href={article.link}>{article.link}</a>
+        <a href={article.link}>Читати далі...</a>
       </Card>
       cardArr.push(item);
-      count++;
+      count++; 
     }
     return (<>
-    <div id="cards_container">{cardArr}</div>
+    <div id="central_container">
+      <div id="cards_container">{cardArr}</div>
+      <div id="left_container">
+        <article>
+          <h2>{favorite.title}</h2>
+          <section>{favorite.summary}</section>
+        </article>
+      </div>
+    </div>
     </>)
   }
 }
