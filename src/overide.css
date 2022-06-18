@@ -1,6 +1,17 @@
 @media (max-width: 900px) {
+    #central_container {
+        padding-top: 7rem !important;
+        display: block !important;
+    }
     #cards_container {
-        display: none;
+        width: 100% !important;
+        height: 100% !important
+    }
+    #left_container {
+        padding-top: 5% !important;
+    }
+    .card {
+        width: 100% !important;
     }
 }
 
@@ -13,7 +24,7 @@
     color: white !important;
     background-color: #262626;
     position: absolute;
-    bottom: 0;
+    bottom: 0.2;
 }
 
 #weather_head {
@@ -30,11 +41,7 @@
 }
 
 #cards_container {
-    padding-top: 2rem;
     padding-left: 0.5%;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-    padding-bottom: 3rem;
     position: relative;
     width: 150%;
     height: 80vmin;
@@ -42,6 +49,9 @@
 }
 
 #central_container {
+    padding-bottom: 5%;
+    padding-top: 3%;
+    display: none;
     overflow-y: scroll;
     display: inline-flex;
     width: auto;

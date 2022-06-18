@@ -157,7 +157,8 @@ class NewsSet extends React.Component {
         favorite = article;
         continue;
       }
-      let item = <Card style={{width: '12rem', height: 'fit-content'}} lang="ua" key={count}>
+      let item = <Card 
+      style={{width: '12rem', height: 'fit-content'}} lang="ua" key={count}>
         <Card.Img variant="top" src={article.media} />
         <Card.Text>{article.title}</Card.Text>
         <a href={article.link}>Читати далі...</a>
@@ -167,13 +168,13 @@ class NewsSet extends React.Component {
     }
     return (<>
     <div id="central_container">
-      <div id="cards_container">{cardArr}</div>
       <div id="left_container">
         <article>
           <h2>{favorite.title}</h2>
           <section>{favorite.summary}</section>
         </article>
       </div>
+      <div id="cards_container">{cardArr}</div>
     </div>
     </>)
   }
@@ -185,8 +186,8 @@ class App extends React.Component {
       <>
         <NavbarMenu />
         <Head />
-        <Footer />
         <NewsSet />
+        <Footer />
       </>
     );
   }
