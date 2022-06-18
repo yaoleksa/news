@@ -1,3 +1,9 @@
+@media (max-width: 900px) {
+    #cards_container {
+        display: none;
+    }
+}
+
 .navbar_link {
     color: white !important;
 }
@@ -28,6 +34,7 @@
     padding-left: 0.5%;
     margin-top: 2rem;
     margin-bottom: 3rem;
+    padding-bottom: 3rem;
     position: relative;
     width: 150%;
     height: 80vmin;
@@ -35,8 +42,9 @@
 }
 
 #central_container {
+    overflow-y: scroll;
     display: inline-flex;
-    width: 100%;
+    width: auto;
 }
 
 #left_container {
