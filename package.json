@@ -3,8 +3,28 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "dependencies": {
+    "express": "^4.18.1",
+    "path": "^0.12.7",
+    "webpack-cli": "^4.10.0",
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "axios": "^0.25.0",
+    "babel-loader": "^8.2.3",
+    "bootstrap": "^5.1.3",
+    "css-loader": "^6.5.1",
+    "file-saver": "^2.0.5",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.1.1",
+    "react-dom": "^17.0.2",
+    "regenerator-runtime": "^0.13.9",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.67.0"
+  },
+  "devDependencies": {},
   "scripts": {
-    "start": "node index.js",
+    "start": "node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,43 +37,5 @@
   "bugs": {
     "url": "https://github.com/yaoleksa/news/issues"
   },
-  "homepage": "https://github.com/yaoleksa/news#readme",
-  "devDependencies": {
-    "@babel/core": "^7.16.12",
-    "@babel/preset-env": "^7.16.11",
-    "@babel/preset-react": "^7.16.7",
-    "axios": "^0.25.0",
-    "babel-loader": "^8.2.3",
-    "bootstrap": "^5.1.3",
-    "css-loader": "^6.5.1",
-    "express": "^4.18.1",
-    "file-saver": "^2.0.5",
-    "path": "^0.12.7",
-    "react": "^17.0.2",
-    "react-bootstrap": "^2.1.1",
-    "react-dom": "^17.0.2",
-    "regenerator-runtime": "^0.13.9",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.67.0",
-    "webpack-cli": "^4.10.0"
-  },
-  "dependencies": {
-    "@babel/core": "^7.16.12",
-    "@babel/preset-env": "^7.16.11",
-    "@babel/preset-react": "^7.16.7",
-    "axios": "^0.25.0",
-    "babel-loader": "^8.2.3",
-    "bootstrap": "^5.1.3",
-    "css-loader": "^6.5.1",
-    "express": "^4.18.1",
-    "file-saver": "^2.0.5",
-    "path": "^0.12.7",
-    "react": "^17.0.2",
-    "react-bootstrap": "^2.1.1",
-    "react-dom": "^17.0.2",
-    "regenerator-runtime": "^0.13.9",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.67.0",
-    "webpack-cli": "^4.10.0"
-  }
+  "homepage": "https://github.com/yaoleksa/news#readme"
 }
