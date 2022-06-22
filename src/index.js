@@ -186,7 +186,6 @@ class App extends React.Component {
       <>
         <NavbarMenu />
         <Head />
-        <NewsSet />
         <Footer />
       </>
     );
