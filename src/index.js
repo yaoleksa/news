@@ -193,6 +193,13 @@ class App extends React.Component {
   }
 }
 
+fetch('https://newsapi.org/v2/top-headlines?' + 
+'country=us&category=business&apiKey=e1dc1b7fda1f436c9e9a45fc23e45c7d').then(res => {
+  return res.json();
+}).then(data => {
+  console.log(data);
+});
+
 export { Footer, NewsSet, Head }
 
 ReactDOM.render(<App />, document.getElementById('root'));
