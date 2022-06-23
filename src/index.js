@@ -142,9 +142,8 @@ class NavbarMenu extends React.Component {
     }
 }
 
-const articles = await functionSet.getNews().then((response) => {
-  return response.articles;
-});
+const articles = await functionSet.getNews();
+
 
 class NewsSet extends React.Component {
   render(){
@@ -186,7 +185,6 @@ class App extends React.Component {
       <>
         <NavbarMenu />
         <Head />
-        <NewsSet />
         <Footer />
       </>
     );

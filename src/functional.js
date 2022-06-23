@@ -91,18 +91,19 @@ module.exports = functionSet = {
         await navigator.geolocation.getCurrentPosition(success, errors);
     },
     getNews: async () => {
-        const url = "https://api.newscatcherapi.com/v2/search?q=all&lang=uk&countries=UA";
-        const request = new Request(url);
-        return await fetch(request, {
-            headers: {
-                'x-api-key': 'mzj4HvlacbRH43uwmiHoRfZfm2YTn8UxVN1cns7zruI'
+                const url = 'https://free-news.p.rapidapi.com/v1/search?q=Ukraine&lang=uk';
+
+                const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': 'dc40d2b288msh88ced99c0191b37p144f83jsne853bb67a11f',
+                    'X-RapidAPI-Host': 'free-news.p.rapidapi.com'
+                }
+                };
+
+                fetch(url, options)
+                    .then(res => res.json())
+                    .then(json => console.log(json))
+                    .catch(err => console.error('error:' + err))
             }
-        })
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            return data;
-        });
-    }
 }
