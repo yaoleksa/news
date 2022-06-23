@@ -100,6 +100,8 @@ class Footer extends React.Component {
           <Row>Contact us: </Row>
           <Row>Donate: </Row>
           <Row>Danate AFU: </Row>
+          <a target="_blank"
+          href="https://rapidapi.com/blog/rapidapi-featured-news-apis/?utm_source=google&utm_medium=cpc&utm_campaig"></a>
         </Container>
       </div>);
   }
