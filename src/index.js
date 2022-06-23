@@ -100,6 +100,10 @@ class Footer extends React.Component {
           <Row>Contact us: </Row>
           <Row>Donate: </Row>
           <Row>Danate AFU: </Row>
+          <Row><a 
+          href="https://rapidapi.com/blog/rapidapi-featured-news-apis/?utm_source=google&utm_medium=cpc&utm_campaig">
+            News API picker
+            </a></Row>
         </Container>
       </div>);
   }
@@ -142,9 +146,8 @@ class NavbarMenu extends React.Component {
     }
 }
 
-const articles = await functionSet.getNews().then((response) => {
-  return response.articles;
-});
+const articles = await functionSet.getNews();
+
 
 class NewsSet extends React.Component {
   render(){
@@ -186,7 +189,6 @@ class App extends React.Component {
       <>
         <NavbarMenu />
         <Head />
-        <NewsSet />
         <Footer />
       </>
     );
