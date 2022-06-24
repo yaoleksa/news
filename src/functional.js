@@ -101,9 +101,14 @@ module.exports = functionSet = {
                 }
                 };
 
-                fetch(url, options)
-                    .then(res => res.json())
-                    .then(json => console.log(json))
-                    .catch(err => console.error('error:' + err))
+                const response = await fetch(url, options)
+                    .then(res => {
+                        return res.json();
+                    })
+                    .then(json => {
+                        return json;
+                    })
+                    .catch(err => console.error('error:' + err));
+                    return response;
             }
 }
