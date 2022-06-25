@@ -171,13 +171,13 @@ class NewsSet extends React.Component {
     <div id="central_container">
       <div id="left_container">
         <article>
-          <h2>{favorite.title}</h2>
+          <h2 id="article_header">{favorite.title}</h2>
           <span id="main_subtitle">
-            <span lang="ua">Дата публікації: {favorite.published_date}</span>
+            <span lang="ua" id="publication_date">Дата публікації: {favorite.published_date}</span>
             <span lang="ua" id="source_news">Джерело: <a 
             href={favorite.link} target="_blank">{favorite.link}</a></span>
           </span>
-          <section>{favorite.summary}</section>
+          <section id="article_summary">{favorite.summary}</section>
         </article>
       </div>
       <div id="cards_container">{cardArr}</div>
@@ -198,6 +198,8 @@ class App extends React.Component {
     );
   }
 }
+
+
 
 export { Footer, NewsSet, Head }
 
