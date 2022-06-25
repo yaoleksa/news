@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
     res.sendFile(publicPath);
 });
 app.post('/', (req, res) => {
-    fs.writeFile('./test.txt', 'test', (err) => {
+    fs.writeFile('./myOwnArticles/test.txt', 'test', (err) => {
         console.log(err);
     });
 });
