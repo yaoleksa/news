@@ -110,7 +110,7 @@ class NavbarMenu extends React.Component {
         return (
         <Navbar bg="dark" variant="dark" expand="lg" lang="ua">
         <Container fluid>
-          <Navbar.Brand href="./index.html">Головна</Navbar.Brand>
+          <Navbar.Brand href="./index.html" active>Головна</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav

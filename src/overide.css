@@ -74,3 +74,7 @@
 #source_news {
     padding-left: 3rem;
 }
+
+.navbar_link.nav-link.active {
+    text-decoration: underline !important;
+}
