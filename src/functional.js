@@ -4,10 +4,7 @@ module.exports = functionSet = {
     query: '',
     googleSearch: () => {
         if(functionSet.query == 'edit_news_site317') {
-            const header = document.getElementById('article_header');
-            const entity = document.getElementById('article_summary');
-            header.innerHTML = 'Chanhed title';
-            entity.innerHTML = 'Changed text';
+            document.getElementById('left_container').hidden = true;
             document.getElementById('input_article').hidden = false;
             return;
         }
