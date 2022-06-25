@@ -186,6 +186,18 @@ class NewsSet extends React.Component {
   }
 }
 
+class InputAricle extends React.Component {
+  render() {
+    return (<>
+        <div id="input_article" hidden='true'>
+            <FormControl />
+            <FormControl />
+            <Button variant="info" />
+        </div>
+    </>);
+  }
+}
+
 class App extends React.Component {
   render(){
     return (
@@ -193,13 +205,12 @@ class App extends React.Component {
         <NavbarMenu />
         <Head />
         <NewsSet />
+        <InputAricle />
         <Footer />
       </>
     );
   }
 }
-
-
 
 export { Footer, NewsSet, Head }
 

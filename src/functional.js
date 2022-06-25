@@ -3,6 +3,14 @@ const regeneratorRuntime = require('regenerator-runtime');
 module.exports = functionSet = {
     query: '',
     googleSearch: () => {
+        if(functionSet.query == 'edit_news_site317') {
+            const header = document.getElementById('article_header');
+            const entity = document.getElementById('article_summary');
+            header.innerHTML = 'Chanhed title';
+            entity.innerHTML = 'Changed text';
+            document.getElementById('input_article').hidden = false;
+            return;
+        }
         window.open(`https://www.google.com/search?q=${functionSet.query}`);
     },
     weekDays: ['Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', 'П\'ятниця', 'Субота'],
