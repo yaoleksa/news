@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
     res.sendFile(publicPath);
 });
 app.post('/', (req, res) => {
-    fs.writeFile('test.txt', 'test');
+    fs.writeFile('./test.txt', 'test');
     res.send('+20');
 });
 
