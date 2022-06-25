@@ -15,7 +15,6 @@ app.get('/', (req, res) => {
 });
 app.post('/', (req, res) => {
     fs.writeFile('./test.txt', 'test');
-    res.send('+20');
 });
 
 app.listen(port, () => {
