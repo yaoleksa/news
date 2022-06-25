@@ -64,3 +64,13 @@
     padding-left: 3%;
     padding-right: 3%;
 }
+
+#main_subtitle {
+    display: inline !important;
+    color: grey;
+    font-size: small;
+}
+
+#source_news {
+    padding-left: 3rem;
+}

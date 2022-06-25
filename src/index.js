@@ -172,6 +172,11 @@ class NewsSet extends React.Component {
       <div id="left_container">
         <article>
           <h2>{favorite.title}</h2>
+          <span id="main_subtitle">
+            <span lang="ua">Дата публікації: {favorite.published_date}</span>
+            <span lang="ua" id="source_news">Джерело: <a 
+            href={favorite.link} target="_blank">{favorite.link}</a></span>
+          </span>
           <section>{favorite.summary}</section>
         </article>
       </div>
