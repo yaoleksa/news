@@ -47,6 +47,11 @@ class CovidNavbarMenu extends React.Component {
     }
 }
 
+const linkImg = document.getElementById('ogimage');
+linkImg.setAttribute('content', Elements.favorite.media);
+const linkDescription = document.getElementById('ogdescription');
+linkDescription.setAttribute('content', Elements.favorite.title);
+
 class App extends React.Component{
   render(){
     return (<>

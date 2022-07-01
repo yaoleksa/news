@@ -145,18 +145,19 @@ class NavbarMenu extends React.Component {
 const articles = await functionSet.getNews().then(response => {
   return response.articles;
 });
+let favorite = articles[0];
+for(let article of articles) {
+  if(favorite.summary.length < article.summary.length){
+    favorite = article;
+  }
+}
 
 class NewsSet extends React.Component {
   render(){
     const cardArr = [];
     console.log(articles);
     let count = 0;
-    let favorite = articles[0];
     for(let article of articles){
-      if(favorite.summary.length < article.summary.length) {
-        favorite = article;
-        continue;
-      }
       let item = <Card 
       style={{width: '12rem', height: 'fit-content'}} lang="ua" key={count}>
         <Card.Img variant="top" src={article.media} />
@@ -185,6 +186,11 @@ class NewsSet extends React.Component {
   }
 }
 
+const linkImg = document.getElementById('ogimage');
+linkImg.setAttribute('content', favorite.media);
+const linkDescription = document.getElementById('ogdescription');
+linkDescription.setAttribute('content', favorite.title);
+
 class InputAricle extends React.Component {
   render() {
     return (<>
@@ -212,6 +218,6 @@ class App extends React.Component {
   }
 }
 
-export { Footer, NewsSet, Head }
+export { Footer, NewsSet, Head, favorite }
 
 ReactDOM.render(<App />, document.getElementById('root'));
