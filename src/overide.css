@@ -13,6 +13,15 @@
     .card {
         width: 100% !important;
     }
+    #input_article {
+        width: 100%;
+        padding-right: 25%;
+        padding-left: 15%;
+        padding-bottom: 3%;
+        float:none !important;
+        padding-top: 30%;
+        vertical-align: middle;
+    }
 }
 
 .navbar_link {
@@ -30,6 +39,7 @@
 #weather_head {
     width: 100%;
     position: absolute;
+    left: 0.1% !important;
     margin: 0;
     padding-bottom: 0;
     display: inline;
@@ -41,6 +51,7 @@
 }
 
 #cards_container {
+    padding-right: 0;
     padding-left: 0.5%;
     position: relative;
     width: 150%;
@@ -51,7 +62,6 @@
 #central_container {
     padding-bottom: 5%;
     padding-top: 3%;
-    display: none;
     overflow-y: scroll;
     display: inline-flex;
     width: auto;
@@ -77,4 +87,13 @@
 
 .navbar_link.nav-link.active {
     text-decoration: underline !important;
+}
+
+#input_article {
+    width: 80%;
+    padding-right: 25%;
+    padding-left: 15%;
+    float:left;
+    padding-top: 25%;
+    vertical-align: middle;
 }

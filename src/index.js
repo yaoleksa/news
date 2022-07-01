@@ -146,7 +146,6 @@ const articles = await functionSet.getNews().then(response => {
   return response.articles;
 });
 
-
 class NewsSet extends React.Component {
   render(){
     const cardArr = [];
@@ -189,10 +188,11 @@ class NewsSet extends React.Component {
 class InputAricle extends React.Component {
   render() {
     return (<>
-        <div id="input_article" hidden='true'>
-            <FormControl />
-            <FormControl />
-            <Button variant="info" />
+        <div id="input_article" hidden={true} lang="ua">
+            <FormControl placeholder='Заголовок статті'/>
+            <FormControl placeholder='Дата публікації' />
+            <FormControl placeholder='Текст публікації' />
+            <Button variant="info">Публікувати</Button>
         </div>
     </>);
   }
@@ -204,8 +204,8 @@ class App extends React.Component {
       <>
         <NavbarMenu />
         <Head />
-        <NewsSet />
         <InputAricle />
+        <NewsSet />
         <Footer />
       </>
     );

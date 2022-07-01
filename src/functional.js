@@ -96,7 +96,7 @@ module.exports = functionSet = {
         await navigator.geolocation.getCurrentPosition(success, errors);
     },
     getNews: async () => {
-                const url = 'https://free-news.p.rapidapi.com/v1/search?q=Ukraine&lang=uk';
+                const url = 'https://free-news.p.rapidapi.com/v1/search?q=*&lang=uk';
 
                 const options = {
                 method: 'GET',
