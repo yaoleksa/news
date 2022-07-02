@@ -111,6 +111,7 @@ module.exports = functionSet = {
                         return res.json();
                     })
                     .then(json => {
+                        this.favorite = json;
                         return json;
                     })
                     .catch(err => console.error('error:' + err));

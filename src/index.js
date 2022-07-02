@@ -145,19 +145,20 @@ class NavbarMenu extends React.Component {
 const articles = await functionSet.getNews().then(response => {
   return response.articles;
 });
-let favorite = articles[0];
-for(let article of articles) {
-  if(favorite.summary.length < article.summary.length){
-    favorite = article;
-  }
-}
 
 class NewsSet extends React.Component {
+  constructor(props){
+    super(props);
+    this.favorite = articles[0];
+  }
   render(){
     const cardArr = [];
     console.log(articles);
     let count = 0;
     for(let article of articles){
+      if(this.favorite.summary.length < article.summary.length){
+        this.favorite = article;
+      }
       let item = <Card 
       style={{width: '12rem', height: 'fit-content'}} lang="ua" key={count}>
         <Card.Img variant="top" src={article.media} />
@@ -171,13 +172,13 @@ class NewsSet extends React.Component {
     <div id="central_container">
       <div id="left_container">
         <article>
-          <h2 id="article_header">{favorite.title}</h2>
+          <h2 id="article_header">{this.favorite.title}</h2>
           <span id="main_subtitle">
-            <span lang="ua" id="publication_date">Дата публікації: {favorite.published_date}</span>
+            <span lang="ua" id="publication_date">Дата публікації: {this.favorite.published_date}</span>
             <span lang="ua" id="source_news">Джерело: <a 
-            href={favorite.link} target="_blank">{favorite.link}</a></span>
+            href={this.favorite.link} target="_blank">{this.favorite.link}</a></span>
           </span>
-          <section id="article_summary">{favorite.summary}</section>
+          <section id="article_summary">{this.favorite.summary}</section>
         </article>
       </div>
       <div id="cards_container">{cardArr}</div>
@@ -185,11 +186,6 @@ class NewsSet extends React.Component {
     </>)
   }
 }
-
-const linkImg = document.getElementById('ogimage');
-linkImg.setAttribute('content', favorite.media);
-const linkDescription = document.getElementById('ogdescription');
-linkDescription.setAttribute('content', favorite.title);
 
 class InputAricle extends React.Component {
   render() {
@@ -218,6 +214,6 @@ class App extends React.Component {
   }
 }
 
-export { Footer, NewsSet, Head, favorite }
+export { Footer, NewsSet, Head }
 
 ReactDOM.render(<App />, document.getElementById('root'));
