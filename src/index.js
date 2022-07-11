@@ -171,6 +171,9 @@ class NewsSet extends React.Component {
     return (<>
     <div id="central_container">
       <div id="left_container">
+        <Card style={{width: 'fit-content', height: 'fit-content'}}>
+          <Card.Img variant="top" src={this.favorite.media}></Card.Img>
+        </Card>
         <article>
           <h2 id="article_header">{this.favorite.title}</h2>
           <span id="main_subtitle">
