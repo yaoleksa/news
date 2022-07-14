@@ -18,7 +18,7 @@ app.get('/policy', (req, res) => {
     res.sendFile(path.join(__dirname, './myOwnArticles/test.txt'));
 });
 app.get('/covid', (req, res) => {
-    res.send('{"Name": "200"}');
+    res.sendFile(path.join(__dirname, './myOwnArticles/covid.txt'));
 });
 app.post('/', (req, res) => {
     console.log({...req.body});

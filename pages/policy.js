@@ -58,6 +58,6 @@ class App extends React.Component {
   }
 }
 
-functionSet.defineArticle();
+functionSet.defineArticle('policy');
 
 ReactDOM.render(<App />, document.getElementById('root'));

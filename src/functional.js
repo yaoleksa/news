@@ -118,12 +118,14 @@ module.exports = functionSet = {
                     return response;
             },
     defineArticle: (page) => {
-        fetch(`https://dailyviewnews.herokuapp.com/${page}`).then(res => {
-            return res.json();
+        const uri = document.URL;
+        const endpoint = document.URL.split('/').slice(0, 3).join('/') + '/';
+        fetch(`${endpoint}${page}`).then(res => {
+            return res.text();
         }).then(data => {
-            alert(data);
+            console.log(data);
         }).catch(err => {
-            alert(err);
+            console.log(err);
         })
     }
 }
