@@ -58,4 +58,6 @@ class App extends React.Component{
   }
 }
 
+functionSet.defineArticle('covid');
+
 ReactDOM.render(<App />, document.getElementById('root'));

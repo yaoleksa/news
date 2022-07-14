@@ -16,7 +16,10 @@ app.get('/', (req, res) => {
 });
 app.get('/policy', (req, res) => {
     res.sendFile(path.join(__dirname, './myOwnArticles/test.txt'));
-})
+});
+app.get('/covid', (req, res) => {
+    res.send('{"Name": "200"}');
+});
 app.post('/', (req, res) => {
     console.log({...req.body});
     const reqObj = {...req.body};

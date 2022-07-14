@@ -116,5 +116,14 @@ module.exports = functionSet = {
                     })
                     .catch(err => console.error('error:' + err));
                     return response;
-            }
+            },
+    defineArticle: (page) => {
+        fetch(`https://dailyviewnews.herokuapp.com/${page}`).then(res => {
+            return res.json();
+        }).then(data => {
+            alert(data);
+        }).catch(err => {
+            alert(err);
+        })
+    }
 }

@@ -58,5 +58,7 @@ class App extends React.Component {
   }
 }
 
+functionSet.defineArticle();
+
 ReactDOM.render(<App />, document.getElementById('root'));
 
