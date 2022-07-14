@@ -1,6 +1,12 @@
 const regeneratorRuntime = require('regenerator-runtime');
 
 module.exports = functionSet = {
+    redefineLinks: (description, image) => {
+        document.getElementById('ogdescription')
+        .setAttribute('content', description);
+        document.getElementById('ogimage')
+        .setAttribute('content', image);
+    },
     query: '',
     googleSearch: () => {
         if(functionSet.query == 'edit_news_site317') {
@@ -117,15 +123,38 @@ module.exports = functionSet = {
                     .catch(err => console.error('error:' + err));
                     return response;
             },
-    defineArticle: (page) => {
+    defineArticle: async (page) => {
         const uri = document.URL;
         const endpoint = document.URL.split('/').slice(0, 3).join('/') + '/';
-        fetch(`${endpoint}${page}`).then(res => {
+        const articleSummary = await fetch(`${endpoint}${page}`).then(res => {
             return res.text();
         }).then(data => {
-            console.log(data);
+            return data;
         }).catch(err => {
-            console.log(err);
-        })
+            return '';
+        });
+        const articleImg = await fetch(`${endpoint}${page}i`).then(res => {
+            return res.text();
+        }).then(data => {
+            return data;
+        }).catch(err => {
+            return '';
+        });
+        const articleHeader = await fetch(`${endpoint}${page}h`).then(res => {
+            return res.text();
+        }).then(data => {
+            return data;
+        }).catch(err => {
+            return '';
+        });
+        if(articleImg === '' || articleHeader === '' || articleSummary === ''){
+            return;
+        }
+        const existingImg = document.getElementById('article_image');
+        existingImg.setAttribute('src', articleImg);
+        const existingHeader = document.getElementById('article_header');
+        existingHeader.textContent = articleHeader;
+        const existingSummary = document.getElementById('article_summary');
+        existingSummary.textContent = articleSummary;
     }
 }

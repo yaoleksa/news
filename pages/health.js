@@ -58,7 +58,7 @@ class App extends React.Component {
   }
 }
 
-functionSet.defineArticle();
+functionSet.defineArticle('health');
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

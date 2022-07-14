@@ -168,11 +168,12 @@ class NewsSet extends React.Component {
       cardArr.push(item);
       count++; 
     }
+    functionSet.redefineLinks(this.favorite.title, this.favorite.media);
     return (<>
     <div id="central_container">
       <div id="left_container">
         <Card style={{width: 'fit-content', height: 'fit-content'}}>
-          <Card.Img variant="top" src={this.favorite.media}></Card.Img>
+          <Card.Img id="article_image" variant="top" src={this.favorite.media}></Card.Img>
         </Card>
         <article>
           <h2 id="article_header">{this.favorite.title}</h2>

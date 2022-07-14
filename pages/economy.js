@@ -58,7 +58,7 @@ class App extends React.Component {
   }
 }
 
-functionSet.defineArticle();
+functionSet.defineArticle('economy');
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

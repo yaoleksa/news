@@ -58,7 +58,7 @@ class App extends React.Component {
   }
 }
 
-functionSet.defineArticle();
+functionSet.defineArticle('culture');
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

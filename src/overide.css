@@ -32,8 +32,8 @@
     width: 100%;
     color: white !important;
     background-color: #262626;
-    position: absolute;
-    bottom: 0.2;
+    position: fixed;
+    bottom: 0%;
 }
 
 #weather_head {
@@ -52,15 +52,15 @@
 
 #cards_container {
     padding-right: 0%;
-    padding-left: 0.5%;
-    position: relative;
+    padding-left: 80%;
+    position: fixed;
     width: 150%;
     height: 80vmin;
     overflow-y: scroll;
 }
 
 #central_container {
-    padding-bottom: 5%;
+    padding-bottom: 20%;
     padding-top: 3%;
     overflow-y: scroll;
     display: inline-flex;
@@ -73,6 +73,7 @@
     padding-top: 5%;
     padding-left: 3%;
     padding-right: 13%;
+    width: 80%;
 }
 
 #main_subtitle {
