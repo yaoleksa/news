@@ -52,6 +52,7 @@ class App extends React.Component {
     return (<>
           <HealthNavbarMenu />
           <Elements.Head />
+          <Elements.InputAricle />
           <Elements.NewsSet />
           <Elements.Footer />
     </>);

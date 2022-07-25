@@ -194,11 +194,12 @@ class NewsSet extends React.Component {
 class InputAricle extends React.Component {
   render() {
     return (<>
-        <div id="input_article" hidden={true} lang="ua">
+        <div id="input_article" name="input_article" hidden={true} lang="ua">
             <FormControl placeholder='Заголовок статті'/>
-            <FormControl placeholder='Дата публікації' />
+            <FormControl placeholder='Посилання на зображення' />
             <FormControl placeholder='Текст публікації' />
-            <Button variant="info">Публікувати</Button>
+            <Button variant="info" id='upload_button' onClick={functionSet.uploadArticle}>Публікувати
+            </Button>
         </div>
     </>);
   }
@@ -218,6 +219,6 @@ class App extends React.Component {
   }
 }
 
-export { Footer, NewsSet, Head }
+export { Footer, NewsSet, Head, InputAricle }
 
 ReactDOM.render(<App />, document.getElementById('root'));

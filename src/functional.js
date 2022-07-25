@@ -1,6 +1,33 @@
 const regeneratorRuntime = require('regenerator-runtime');
 
 module.exports = functionSet = {
+    uploadArticle: () => {
+        if(!document.URL.split('/')[4]){
+            document.getElementById('left_container').hidden = false;
+            document.getElementById('input_article').hidden = true;
+            return;
+        }
+        alert(220);
+        const bodyJSON = {
+            page: document.URL.split('/')[4].split('.')[0],
+            content: '220V',
+            header: 'Ой хлопці, якби ж ви знали, шо то за сила тих 220 вольт, ват... Хлопці..',
+            image: 'https://images.unsplash.com/' + 
+            'photo-1578979879663-4ba6a968a50a?ixlib=rb-1.' +
+            '2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29vbCUyMGdpcmx8ZW58MHx8MHx8&w=1000&q=80'
+        }
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(bodyJSON)
+        }
+        const endpoint = document.URL.split('/').slice(0, 3).join('/') + '/';
+        fetch(endpoint, options);
+        document.getElementById('left_container').hidden = false;
+        document.getElementById('input_article').hidden = true;
+    },
     redefineLinks: (description, image) => {
         document.getElementById('ogdescription')
         .setAttribute('content', description);

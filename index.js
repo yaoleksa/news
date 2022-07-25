@@ -18,10 +18,10 @@ app.get('/policy', (req, res) => {
     res.sendFile(path.join(__dirname, './myOwnArticles/policy.txt'));
 });
 app.get('/policyh', (req, res) => {
-    res.sendFile(path.join(__dirname, './myOwnArticles/policy.txt'));
+    res.sendFile(path.join(__dirname, './myOwnArticles/policyh.txt'));
 });
 app.get('/policyi', (req, res) => {
-    res.sendFile(path.join(__dirname, './myOwnArticles/policy.txt'));
+    res.sendFile(path.join(__dirname, './myOwnArticles/policyi.txt'));
 });
 app.get('/covid', (req, res) => {
     res.sendFile(path.join(__dirname, './myOwnArticles/covid.txt'));
@@ -36,53 +36,60 @@ app.get('/culture', (req, res) => {
     res.sendFile(path.join(__dirname, './myOwnArticles/culture.txt'));
 });
 app.get('/cultureh', (req, res) => {
-    res.sendFile(path.join(__dirname, './myOwnArticles/culture.txt'));
+    res.sendFile(path.join(__dirname, './myOwnArticles/cultureh.txt'));
 });
 app.get('/culturei', (req, res) => {
-    res.sendFile(path.join(__dirname, './myOwnArticles/culture.txt'));
+    res.sendFile(path.join(__dirname, './myOwnArticles/culturei.txt'));
 });
 app.get('/sport', (req, res) => {
     res.sendFile(path.join(__dirname, './myOwnArticles/sport.txt'));
 });
 app.get('/sporth', (req, res) => {
-    res.sendFile(path.join(__dirname, './myOwnArticles/sport.txt'));
+    res.sendFile(path.join(__dirname, './myOwnArticles/sporth.txt'));
 });
 app.get('/sporti', (req, res) => {
-    res.sendFile(path.join(__dirname, './myOwnArticles/sport.txt'));
+    res.sendFile(path.join(__dirname, './myOwnArticles/sporti.txt'));
 });
 app.get('/secular', (req, res) => {
     res.sendFile(path.join(__dirname, './myOwnArticles/secular.txt'));
 });
 app.get('/secularh', (req, res) => {
-    res.sendFile(path.join(__dirname, './myOwnArticles/secular.txt'));
+    res.sendFile(path.join(__dirname, './myOwnArticles/secularh.txt'));
 });
 app.get('/seculari', (req, res) => {
-    res.sendFile(path.join(__dirname, './myOwnArticles/secular.txt'));
+    res.sendFile(path.join(__dirname, './myOwnArticles/seculari.txt'));
 });
 app.get('/health', (req, res) => {
     res.sendFile(path.join(__dirname, './myOwnArticles/health.txt'));
 });
 app.get('/healthh', (req, res) => {
-    res.sendFile(path.join(__dirname, './myOwnArticles/health.txt'));
+    res.sendFile(path.join(__dirname, './myOwnArticles/healthh.txt'));
 });
 app.get('/healthi', (req, res) => {
-    res.sendFile(path.join(__dirname, './myOwnArticles/health.txt'));
+    res.sendFile(path.join(__dirname, './myOwnArticles/healthi.txt'));
 });
 app.get('/economy', (req, res) => {
     res.sendFile(path.join(__dirname, './myOwnArticles/economy.txt'));
 });
 app.get('/economyh', (req, res) => {
-    res.sendFile(path.join(__dirname, './myOwnArticles/economy.txt'));
+    res.sendFile(path.join(__dirname, './myOwnArticles/economyh.txt'));
 });
 app.get('/economyi', (req, res) => {
-    res.sendFile(path.join(__dirname, './myOwnArticles/economy.txt'));
+    res.sendFile(path.join(__dirname, './myOwnArticles/economyi.txt'));
 });
 app.post('/', (req, res) => {
     console.log({...req.body});
     const reqObj = {...req.body};
-    fs.writeFile('./myOwnArticles/test.txt', reqObj.name, (err) => {
-        console.log(err);
+    const reqPage = reqObj.page;
+    fs.writeFile(`./myOwnArticles/${reqPage}.txt`, reqObj.content, (err) => {
+        console.error(err);
     });
+    fs.writeFile(`./myOwnArticles/${reqPage}h.txt`, reqObj.header, (err) => {
+        console.error(err);
+    });
+    fs.writeFile(`./myOwnArticles/${reqPage}i.txt`, reqObj.image, (err) => {
+        console.error(err);
+    })
     res.send('not empty');
 });
 
