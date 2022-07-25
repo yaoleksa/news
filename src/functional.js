@@ -7,14 +7,22 @@ module.exports = functionSet = {
             document.getElementById('input_article').hidden = true;
             return;
         }
-        alert(220);
+        
+        const newHeader = document.getElementById('new_header').value;
+        const newImage = document.getElementById('new_image').value;
+        const newContent = document.getElementById('new_text').value;
+
+        if(newHeader.length < 1 || newImage.length < 1 || newContent.length <1){
+            document.getElementById('left_container').hidden = false;
+            document.getElementById('input_article').hidden = true;
+            return;
+        }
+        
         const bodyJSON = {
             page: document.URL.split('/')[4].split('.')[0],
-            content: '220V',
-            header: 'Ой хлопці, якби ж ви знали, шо то за сила тих 220 вольт, ват... Хлопці..',
-            image: 'https://images.unsplash.com/' + 
-            'photo-1578979879663-4ba6a968a50a?ixlib=rb-1.' +
-            '2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29vbCUyMGdpcmx8ZW58MHx8MHx8&w=1000&q=80'
+            content: newContent,
+            header: newHeader,
+            image: newImage
         }
         const options = {
             method: 'POST',

@@ -195,9 +195,9 @@ class InputAricle extends React.Component {
   render() {
     return (<>
         <div id="input_article" name="input_article" hidden={true} lang="ua">
-            <FormControl placeholder='Заголовок статті'/>
-            <FormControl placeholder='Посилання на зображення' />
-            <FormControl placeholder='Текст публікації' />
+            <FormControl id='new_header' placeholder='Заголовок статті'/>
+            <FormControl id='new_image' placeholder='Посилання на зображення' />
+            <FormControl id='new_text' placeholder='Текст публікації' />
             <Button variant="info" id='upload_button' onClick={functionSet.uploadArticle}>Публікувати
             </Button>
         </div>
