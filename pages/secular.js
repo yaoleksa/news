@@ -29,7 +29,7 @@ class SecularNavbarMenu extends React.Component {
               <Nav.Link className="navbar_link" href="./secular_life.html" active>Світське життя</Nav.Link>
               <Nav.Link className="navbar_link" href="./health.html">Здоров'я</Nav.Link>
               <Nav.Link className="navbar_link" href="./economy.html">Економіка</Nav.Link>
-              <Nav.Link className="navbar_link" href="./covid-19.html" active>COVID-19</Nav.Link>
+              <Nav.Link className="navbar_link" href="./covid-19.html">COVID-19</Nav.Link>
             </Nav>
             <Form className="d-flex">
               <FormControl
