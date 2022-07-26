@@ -51,13 +51,13 @@ app.get('/sporti', (req, res) => {
     res.sendFile(path.join(__dirname, './myOwnArticles/sporti.txt'));
 });
 app.get('/secular', (req, res) => {
-    res.sendFile(path.join(__dirname, './myOwnArticles/secular.txt'));
+    res.sendFile(path.join(__dirname, './myOwnArticles/secular_life.txt'));
 });
 app.get('/secularh', (req, res) => {
-    res.sendFile(path.join(__dirname, './myOwnArticles/secularh.txt'));
+    res.sendFile(path.join(__dirname, './myOwnArticles/secular_lifeh.txt'));
 });
 app.get('/seculari', (req, res) => {
-    res.sendFile(path.join(__dirname, './myOwnArticles/seculari.txt'));
+    res.sendFile(path.join(__dirname, './myOwnArticles/secular_lifei.txt'));
 });
 app.get('/health', (req, res) => {
     res.sendFile(path.join(__dirname, './myOwnArticles/health.txt'));
