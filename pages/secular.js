@@ -59,7 +59,7 @@ class App extends React.Component {
   }
 }
 
-functionSet.defineArticle('secular_life');
+functionSet.defineArticle('secular');
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
