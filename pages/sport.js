@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
@@ -47,6 +48,21 @@ class SportNavbarMenu extends React.Component {
     }
 }
 
+class SportFooter extends React.Component {
+  render() {
+    return (
+      <div id="footer">
+        <Container>
+          <Row><span>Contact ass: <a id='ass_link' href='./ass.html'>contact</a></span></Row>
+          <Row><span>Donate: <a>5168 7574 2726 0759</a></span></Row>
+          <Row><span>Danate AFU: <a href='https://prytulafoundation.org/uk/home/support_page' target="_blank">
+            Фонд Сергія Притули
+          </a></span></Row>
+        </Container>
+      </div>);
+  }
+}
+
 class App extends React.Component {
   render() {
     return (<>
@@ -54,7 +70,7 @@ class App extends React.Component {
         <Elements.Head />
         <Elements.InputAricle />
         <Elements.NewsSet />
-        <Elements.Footer />
+        <SportFooter />
     </>);
   }
 }

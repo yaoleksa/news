@@ -97,9 +97,11 @@ class Footer extends React.Component {
     return (
       <div id="footer">
         <Container>
-          <Row>Contact us: </Row>
-          <Row>Donate: </Row>
-          <Row>Danate AFU: </Row>
+          <Row><span>Contact ass: <a id='ass_link' href='./pages/ass.html'>contact</a></span></Row>
+          <Row><span>Donate: <a>5168 7574 2726 0759</a></span></Row>
+          <Row><span>Danate AFU: <a href='https://prytulafoundation.org/uk/home/support_page' target="_blank">
+            Фонд Сергія Притули
+          </a></span></Row>
         </Container>
       </div>);
   }
