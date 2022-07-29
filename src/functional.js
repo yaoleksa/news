@@ -191,5 +191,16 @@ module.exports = functionSet = {
         existingHeader.textContent = articleHeader;
         const existingSummary = document.getElementById('article_summary');
         existingSummary.textContent = articleSummary;
+    },
+    danate: () => {
+        const url = document.URL.split('/').slice(0, 3).join('/') + '/payment';
+        const options = {
+            method: 'POST'
+        };
+        fetch(url, options).then(response => {
+            return response.json();
+        }).then(data => {
+            return data;
+        })
     }
 }

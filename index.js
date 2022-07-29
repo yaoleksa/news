@@ -4,6 +4,7 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 7000;
 const publicPath = path.join(__dirname, './');
+const LiqPay = require('liqpay');
 
 const app = express();
 
@@ -91,6 +92,30 @@ app.post('/', (req, res) => {
         console.error(err);
     })
     res.send('not empty');
+});
+app.post('/payment', (req, res) => {
+    const public_key = 'sandbox_i87906902940';
+    const private_key = 'sandbox_49yzl1qsYkJLGnk5dnwkvxTa9XzQcVaTZU24W3XV';
+    const liqpay = new LiqPay(public_key, private_key);
+    liqpay.api("request", {
+    "action"         : "p2p",
+    "version"        : "3",
+    "phone"          : "380950000001",
+    "amount"         : "1",
+    "currency"       : "UAH",
+    "description"    : "description text",
+    "order_id"       : "order_id_1" + parseInt(Math.random() * 1000), // Always must be fresh and uniq!!!!
+    "receiver_card"  : "4731195301524633",
+    "card"           : "5168757427260759",
+    "card_exp_month" : "02",
+    "card_exp_year"  : "25",
+    "card_cvv"       : "082"
+    }, function(json){
+    console.log(json);
+    res = json;
+    });
+    console.log(parseInt(Math.random() * 1000));
+    return res;
 });
 
 app.listen(port, () => {

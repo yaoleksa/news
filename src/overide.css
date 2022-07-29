@@ -109,3 +109,8 @@
     padding-top: 25%;
     vertical-align: middle;
 }
+
+#payment_form {
+    width: 85%;
+    padding: 25%;
+}
