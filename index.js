@@ -112,10 +112,11 @@ app.post('/payment', (req, res) => {
     "card_cvv"       : "082"
     }, function(json){
     console.log(json);
-    res = json;
     });
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.sendStatus(200);
     console.log(parseInt(Math.random() * 1000));
-    return res;
+    
 });
 
 app.listen(port, () => {

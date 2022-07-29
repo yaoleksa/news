@@ -192,15 +192,19 @@ module.exports = functionSet = {
         const existingSummary = document.getElementById('article_summary');
         existingSummary.textContent = articleSummary;
     },
-    danate: () => {
+    donate: () => {
         const url = document.URL.split('/').slice(0, 3).join('/') + '/payment';
         const options = {
             method: 'POST'
         };
         fetch(url, options).then(response => {
-            return response.json();
+            return response;
         }).then(data => {
+            console.log(data);
             return data;
+        }).catch(err => {
+            console.error(err);
+            return err;
         })
     }
 }

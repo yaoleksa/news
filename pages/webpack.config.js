@@ -2,9 +2,9 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './economy.js',
+  entry: './payment.js',
   output: {
-    filename: 'bandledEconomy.js',
+    filename: 'bandledPayment.js',
     path: path.resolve(__dirname, './'),
   },
   module: {

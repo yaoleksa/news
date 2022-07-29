@@ -29,7 +29,7 @@ class App extends React.Component{
         <InputGroup.Text>Рік:</InputGroup.Text>
         <Form.Control id="expired_year" placeholder='2022' />
       </InputGroup>
-      <Button variant='success' onClick={functionSet.danate}>Задонатити</Button>
+      <Button variant='success' onClick={functionSet.donate}>Задонатити</Button>
       <Card>
         <Card.Body>
           <Card.Title>Але ліпше скиньте на цю картку 5168757427260759 користуючись цим сервісом  
